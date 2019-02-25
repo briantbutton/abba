@@ -1,8 +1,25 @@
-# Mesh Writer
+# ABBA
 
-Generate letters in BABYLON meshes.
+AtoB and BtoA conversion with greater compactness than the Javascript standard.
 
-### Basic-Usage
+### Intended Purpose
+
+There are many situations where you may want to place a string somewhere that special characters are not allowed.
+Examples include:
+- **url parameter** &nbsp; 
+- **embedded metadata** &nbsp; in a file or http header
+- **file metadata** &nbsp; AWS S3
+
+Standard approaches have limitations.
+B64 encoding increases string length by one third and fails on non-ascii characters.
+Using encodeURI is also inflationary and still creates problematic characters.
+Using B64 in combination with encodeURI is reliable for all characters but increasing string size by 60%+.
+
+ABBA sanitizes strings with all characters and also averages a zero length increase.
+(Your mileage may vary.)
+
+
+### Basic Usage
 
 	Writer = BABYLON.MeshWriter(scene, {scale:scale});
 	text1  = new Writer( 
@@ -86,4 +103,3 @@ Colors:&nbsp; With most lighting, it is enough just to use the "color" field to 
 There are four font families available, 'Helvetica', 'HirukoPro-Book', 'Jura', 'Comic' and 'WebGL-Dings but you probably do not need to specify one.&nbsp; The default font, Helvetica, has the most extensive characters and the fewest faces; it will be the most efficient if you have a lot of text.&nbsp; Jura was added because the author likes it for numbers.
 
 **Important:** Comic and Web-Dings are really just placeholders as of this writing, with only a few glyphs.
-
