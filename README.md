@@ -2,6 +2,16 @@
 
 AtoB and BtoA conversion with greater compactness than the Javascript standard.
 
+### Why I build this
+
+I put metadata all over the place, usually text strings with user-entered prose.&nbsp;
+Sometimes JSON.&nbsp;
+These spaces have different restrictions but Base 64 characters are universally safe.&nbsp;
+A couple of these places have tight space limitations.&nbsp;
+
+So I built this utility, which I use to "defang" strings so I can jam them into corners.
+
+
 ### Intended Purpose
 
 There are many situations where you may want to place a string somewhere that special characters are not allowed.
@@ -11,12 +21,27 @@ Examples include:
 - **file metadata** &nbsp; AWS S3
 
 Standard approaches have limitations.
-B64 encoding increases string length by one third and fails on non-ascii characters.
-Using encodeURI is also inflationary and still creates problematic characters.
-Using B64 in combination with encodeURI is reliable for all characters but increasing string size by 60%+.
 
-ABBA sanitizes strings with all characters and also averages a zero length increase.
+**BTOA/ATOB**
+These fail to recover non-ASCII characters.&nbsp;
+Try this:&nbsp;  atob(btoa("β""))&nbsp;
+35% inflation.
+
+**EncodeURI**
+Ignores problematic characters.&nbsp;
+See this:&nbsp;  encodeURIComponent("it's")&nbsp;
+
+**EncodeURI** **plus** **BTOA/ATOB**
+Comprehensive and safe: Encodes and decodes all characters properly in/out of Base 64.&nbsp;
+Large inflation: Over 50% for most English prose
+
+**ABBA**
+ABBA is completely 'safe' -- limited character set.&nbsp;
+It converts non-ASCII characters and recovers them properly.&nbsp;
+Its inflation is typically less than 10%; English prose is usually shortened!&nbsp;
 (Your mileage may vary.)
+
+ABBA has hooks for easy extension, should you have an application with oft-repeated string sequences.&nbsp;
 
 
 ### Basic Usage
