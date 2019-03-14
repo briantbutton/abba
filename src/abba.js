@@ -11,7 +11,7 @@
       notPermitted               = /[^a-zA-Z0-9+-]/, 
       codesIn                    = {}, codesOut, b64bits;
 
-  if ( typeof module !== 'undefined' && module.exports ) {
+  if ( typeof module === 'object' && module.exports ) {
     module.exports = ABBA;
   }
   if ( typeof define === 'function' && define.amd ) {
