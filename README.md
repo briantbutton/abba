@@ -55,21 +55,6 @@ ABBA has hooks for easy extension, should you have an application with oft-repea
 	abba.compress("foo");                         # LmM
 	abba.decompress(abba.compress("foo"));        # foo
 
-
-**ABBA**
-ABBA is completely 'safe' -- converts characters into Base64 characters.&nbsp;
-It converts non-ASCII characters and recovers them properly.&nbsp;
-Its inflation is typically less than 10%; English prose is usually **shortened!**&nbsp;
-(Your mileage may vary.)
-
-ABBA has hooks for easy extension, should you have an application with oft-repeated string sequences.&nbsp;
-
-### Basic Usage
-
-	abba = new ABBA();
-	abba.compress("foo");                         # LmM
-	abba.decompress(abba.compress("foo"));        # foo
-
 Really not much to basic usage, eh?
 
 ### Optimizing / customizing
@@ -96,15 +81,15 @@ The result seems pretty optimal (casually speaking).
 
 The initial ABBA lexicon is:
 
-  codesOut = [
-      // 1 letter codes
-      ""      , "a"     , "á"     , "à"     , "â"     , "b"     , "c"     , "d"     , "e"     , "è"     , "é"     , "f"     , "g"     , "h"     , "i"     , "í"     ,               //   0
-      "j"     , "k"     , "l"     , "m"     , "n"     , "ñ"     , "o"     , "ô"     , "ó"     , "p"     , "q"     , "r"     , "s"     , "t"     , "u"     , "v"     ,
-      "w"     , "x"     , "y"     , "z"     , "ç"     , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      ,               //  32
-      "A"     , "B"     , "C"     , "D"     , "E"     , "F"     , "G"     , "H"     , "I"     , "J"     , "K"     , "L"     , "M"     , "N"     , "O"     , "P"     ,
-      "Q"     , "R"     , "S"     , "T"     , "U"     , "V"     , "W"     , "X"     , "Y"     , "Z"     , ""      , ""      , ""      , ""      , ""      , ""      ,               //  64
-      ""      , ""      , ""      , ""      , ""      , "0"     , "1"     , "2"     , "3"     , "4"     , "5"     , "6"     , "7"     , "8"     , "9"     , " "     , 
-      // 2 letter codes
+	codesOut = [
+	    // 1 letter codes
+	    ""      , "a"     , "á"     , "à"     , "â"     , "b"     , "c"     , "d"     , "e"     , "è"     , "é"     , "f"     , "g"     , "h"     , "i"     , "í"     ,               //   0
+	    "j"     , "k"     , "l"     , "m"     , "n"     , "ñ"     , "o"     , "ô"     , "ó"     , "p"     , "q"     , "r"     , "s"     , "t"     , "u"     , "v"     ,
+	    "w"     , "x"     , "y"     , "z"     , "ç"     , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      , ""      ,               //  32
+	    "A"     , "B"     , "C"     , "D"     , "E"     , "F"     , "G"     , "H"     , "I"     , "J"     , "K"     , "L"     , "M"     , "N"     , "O"     , "P"     ,
+	    "Q"     , "R"     , "S"     , "T"     , "U"     , "V"     , "W"     , "X"     , "Y"     , "Z"     , ""      , ""      , ""      , ""      , ""      , ""      ,               //  64
+	    ""      , ""      , ""      , ""      , ""      , "0"     , "1"     , "2"     , "3"     , "4"     , "5"     , "6"     , "7"     , "8"     , "9"     , " "     , 
+	    // 2 letter codes
       "li"    , "he"    , "an"    , "in"    , "er"    , "on"    , "re"    , "ed"    , "nd"    , "ha"    , "at"    , "en"    , "es"    , "of"    , "nt"    , "ea"    ,
       "ti"    , "to"    , "io"    , "le"    , "is"    , "ou"    , "ar"    , "as"    , "de"    , "rt"    , "ve"    , "st"    , "or"    , "it"    , "te"    , "ng"    ,               //  96
       "al"    , "be"    , "se"    , "hi"    , "me"    , "ri"    , "ro"    , "co"    , "by"    , "di"    , "ra"    , "ic"    , "ce"    , "la"    , "ne"    , "we"    ,
@@ -137,4 +122,4 @@ The initial ABBA lexicon is:
       // ascii symbol codes
       "+"     , "-"     , "="     , "!"     , "$"     , "?"     , "_"     , "%"      , "<"     , ">"     , "("     , ")"     , "["     , "]"     , "{"     , "}"    ,               // 480
       "&"     , "~"     , "|"     , "^"     , "`"     , ";"     , ":"     , ", "     , ","     , "."     , "\n"    , "\r"    , "\""    , "'"     , null    , null 
-  ];
+	];
